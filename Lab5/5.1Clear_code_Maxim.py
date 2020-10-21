@@ -48,7 +48,7 @@ def house(x, y):
     rect(screen, gray, [x + 65, y - 115, 7, 16])
     rect(screen, gray, [x + 92, y - 115, 7, 16])
     # the roof
-    polygon(screen, roof, [[x - 10, y-163], [x + 6, y-175], [x+105, y-175], [x+124, y-163]])
+    polygon(screen, roof, [[x - 10, y - 163], [x + 6, y - 175], [x + 105, y - 175], [x + 124, y - 163]])
     # pipes
     rect(screen, gray, [x + 23, y - 203, 8, 15])
     rect(screen, gray, [x + 67, y - 190, 4, 15])
@@ -56,14 +56,14 @@ def house(x, y):
     rect(screen, gray, [x + 16, y - 190, 4, 15])
 
 
-def cloud(r,g,b,p,x,y,length_x,high_y):
+def cloud(r, g, b, p, x, y, length_x, high_y):
     '''
     This function draws clouds;
-    r,g,b : 0..255,0..255,0..255 - the colour of cloud in RGB;
-    x,y: int,int - the coordinates of the upper left corner;
-    length_x : int - the length on x coordinate of cloud.
-    high_y : int - the high on y coordinate of cloud.
-    p : int - transparency;
+    r, g, b: 0..255, 0..255, 0..255 - the colour of cloud in RGB;
+    x, y: int,int - the coordinates of the upper left corner;
+    length_x: int - the length on x coordinate of cloud.
+    high_y: int - the high on y coordinate of cloud.
+    p: int - transparency;
     '''
     ellipse(surface, (r, g, b, p), (x, y, length_x, high_y))
 
@@ -73,22 +73,23 @@ def cloud(r,g,b,p,x,y,length_x,high_y):
 def ghost(x, y, r, colour_R, colour_G, colour_B, p,Pos):
     '''
     this function draws ghost.
-    x,y: int, int - the coordinates of the face centre of the ghost; 
-    r : int - the radius of face of the ghost.
-    colour_R,colour_G,colour_B : 0..255,0..255,0..255 - the colour of ghost in RGB;
-    p : int - transparency;
-    Pos : bool - True if ghost turns left, False if ghost turns right;
+    x, y: int, int - the coordinates of the face centre of the ghost; 
+    r: int - the radius of face of the ghost.
+    colour_R, colour_G, colour_B: 0..255,0..255,0..255 - the colour of ghost in RGB;
+    p: int - transparency;
+    Pos: bool - True if ghost turns left, False if ghost turns right;
     '''
     circle(surface, (colour_R, colour_G, colour_B, p), (x, y), r)
-    rect(surface, (colour_R, colour_G, colour_B, p), (x-r, y, 2*r, 1.3*r))
-    polygon(surface, (colour_R, colour_G, colour_B, p), [(x-r, y+1.3*r), (x-r, y+1.6*r), (x-r+0.33*r, y+1.4*r),
-                                                      (x-r+2*0.33*r, y+1.6*r), (x-r+3*0.33*r, y+1.4*r),
-                                                      (x-r+4*0.33*r, y+1.6*r), (x-r+5*0.33*r, y+1.4*r),
-                                                      (x+r, y+1.6*r), (x+r, y+1.3*r)])
+    rect(surface, (colour_R, colour_G, colour_B, p), (x - r, y, 2*r, 1.3*r))
+    polygon(surface, (colour_R, colour_G, colour_B, p), [(x - r, y + 1.3*r), (x - r, y + 1.6*r), 
+                                                         (x - r + 0.33*r, y + 1.4*r), (x - r + 2*0.33*r, y + 1.6*r), 
+                                                         (x - r + 3*0.33*r, y + 1.4*r), (x - r + 4*0.33*r, y + 1.6*r), 
+                                                         (x - r + 5*0.33*r, y + 1.4*r), (x + r, y + 1.6*r), 
+                                                         (x + r, y + 1.3*r)])
     if Pos:
-        circle(surface, (225, 225, 225, 225), [x-int(0.5*r), y-int(0.5*r)], int(0.3*r))
+        circle(surface, (225, 225, 225, 225), [x - int(0.5 * r), y - int(0.5 * r)], int(0.3 * r))
         circle(surface, (0, 0, 0, 225), [x - int(0.5 * r), y - int(0.5 * r)], int(0.1 * r))
-        circle(surface, (225, 225, 225, 225), [x + int(0.25*r), y - int(0.25 * r)], int(0.3 * r))
+        circle(surface, (225, 225, 225, 225), [x + int(0.25 * r), y - int(0.25 * r)], int(0.3 * r))
         circle(surface, (0, 0, 0, 225), [x + int(0.25 * r), y - int(0.25 * r)], int(0.1 * r))
     else:
         circle(surface, (225, 225, 225, 225), [x - int(0.25 * r), y - int(0.25 * r)], int(0.3 * r))
@@ -158,17 +159,13 @@ def ghostr(x, y, r, i, j, k, p):
     pygame.draw.circle(screen, (0, 0, 0), [x + int(0.5 * r), y - int(0.5 * r)], int(0.1 * r))
 
 # рисуем наконец
-house(220, 594,0,0)
-house(15, 688,0,0)
-house(467, 469,0,0)
-# red = ((255,0,0))
-# orange = ((255,100,10))
-# blue = ((0,0,255))
-# pink = ((255,100,180))
-ghostl(508, 699, 50, 255, 0, 0,  250)
-ghostr(134, 746, 30, 255, 100, 180,  120)
-ghostr(107, 791, 30, 0, 0, 255,  100)
-ghostl(519, 543, 40, 255, 100, 10,  150)
+house(220, 594, 0, 0)
+house(15, 688, 0, 0)
+house(467, 469, 0, 0)
+ghostl(508, 699, 50, 255, 0, 0, 250)
+ghostr(134, 746, 30, 255, 100, 180, 120)
+ghostr(107, 791, 30, 0, 0, 255, 100)
+ghostl(519, 543, 40, 255, 100, 10, 150)
 screen.blit(surface, (0, 0))
 pygame.display.update()
 clock = pygame.time.Clock()
