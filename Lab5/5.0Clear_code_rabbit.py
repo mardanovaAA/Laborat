@@ -15,9 +15,9 @@ def draw_body(Coordin_x, Coordin_y, height, fat, colour_body, colour_belly):
     Parameters:
     Coordin_x, Coordin_y: int, int
         the coordinates of the bottom centre. 
-    height : int
+    height: int
         The length of body from bottom to top.
-    fat_body : int
+    fat_body: int
         The thickness of body.
     colour_body: (0..255, 0..255, 0..255) of the name of colour
         the colour of body.
@@ -34,9 +34,9 @@ def draw_head(Coordin_x, Coordin_y, size, colour_head):
     Parameter:
     Coordin_x, Coordin_y: int, int
         the coordinates of the bottom centre.
-    size : int
+    size: int
         the radius of head.
-    colour_head :(0..255, 0..255, 0..255) of the name of colour
+    colour_head: (0..255, 0..255, 0..255) of the name of colour
         the colour of head.
     """
     circle(screen, colour_head, (Coordin_x, Coordin_y), size)
@@ -47,13 +47,13 @@ def draw_ear(Coordin_x, Coordin_y, length, thickness, colour_ear, colour_inner):
     Parameters:
     Coordin_x, Coordin_y: int, int: 
         The coordinates of the ear's bottom
-    length : int
+    length: int
         the length of ear.
-    thickness : int
+    thickness: int
         the thickness of ear.
-    colour_ear :(0..255, 0..255, 0..255) of the name of colour
+    colour_ear: (0..255, 0..255, 0..255) of the name of colour
         the colour of ear.
-    colour_inner :(0..255, 0..255, 0..255) of the name of colour
+    colour_inner: (0..255, 0..255, 0..255) of the name of colour
         the colour of the inner ear.    
     """    
     ellipse(screen, colour_ear, (Coordin_x - thickness//2, Coordin_y - length, 
@@ -67,11 +67,11 @@ def draw_leg(Coordin_x, Coordin_y, height, thickness, colour_leg):
     Parameters:
     Coordin_x, Coordin_y: int, int: 
         The coordinates of the centre left side
-    height : int
+    height: int
         the length from bottom to top.
-    thickness : int
+    thickness: int
         the length from left to right.
-    colour_leg : (0..255, 0..255, 0..255) of the name of colour
+    colour_leg: (0..255, 0..255, 0..255) of the name of colour
         the colour of leg.
     """    
     ellipse(screen, colour_leg, (Coordin_x, Coordin_y - height//2, thickness, height))
@@ -83,17 +83,17 @@ def rabbit(Coordin_x, Coordin_y, height, length_ears, colour_0, colour_1):
     Parameters:
     Coordin_x, Coordin_y: int, int: 
         The coordinates of the bottom centre
-    height : int: 
+    height: int: 
         the height of rabbit - from hind legs to the top of head WITHOUT ears.
-    length_ears : int: 
+    length_ears: int: 
         the length of rabbit's ears;
-    colour_0 : (0..255, 0..255, 0..255) or the colour name: 
+    colour_0: (0..255, 0..255, 0..255) or the colour name: 
         the colour of our rabbit;
-    colour_1 : (0..255, 0..255, 0..255) or the colour name: 
+    colour_1: (0..255, 0..255, 0..255) or the colour name: 
         the colour of rabbit's belly and ears;    
     """
     draw_body(Coordin_x, Coordin_y, int(0.7*height), int(0.5*height), colour_0, colour_1)
-    draw_head(Coordin_x, int(Coordin_ y- 0.8*height), int(0.2*height), colour_0)
+    draw_head(Coordin_x, int(Coordin_y - 0.8*height), int(0.2*height), colour_0)
     draw_ear(Coordin_x + int(0.1*height), Coordin_y - int(0.85*height), length_ears, 
              int(0.35*length_ears), colour_0, colour_1)
     draw_ear(Coordin_x - int(0.1*height), Coordin_y - int(0.85*height), length_ears,
