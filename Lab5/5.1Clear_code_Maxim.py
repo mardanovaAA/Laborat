@@ -21,14 +21,12 @@ roof = (30, 30, 30)
 
 screen.fill(fon) #fill in the background
 
-circle(screen, moon_glow, [385, 55], 37) #Draw the moon 
-rect(screen, black, [0, 263, 428, 365]) #Drow the ground
 
 
 def house(x, y):
     '''
     This function draws a house.
-    x, y: int,int - the coordinates of the lower left corner;
+    x, y: int, int - the coordinates of the lower left corner;
     '''
     # the walls
     rect(screen, brown, [x, y - 162, 114, 163])
@@ -60,7 +58,7 @@ def cloud(r, g, b, p, x, y, length_x, high_y):
     '''
     This function draws clouds;
     r, g, b: 0..255, 0..255, 0..255 - the colour of cloud in RGB;
-    x, y: int,int - the coordinates of the upper left corner;
+    x, y: int, int - the coordinates of the upper left corner;
     length_x: int - the length on x coordinate of cloud.
     high_y: int - the high on y coordinate of cloud.
     p: int - transparency;
@@ -70,7 +68,7 @@ def cloud(r, g, b, p, x, y, length_x, high_y):
 
 
 
-def ghost(x, y, r, colour_R, colour_G, colour_B, p,Pos):
+def ghost(x, y, r, colour_R, colour_G, colour_B, p, Pos):
     '''
     this function draws ghost.
     x, y: int, int - the coordinates of the face centre of the ghost; 
@@ -101,7 +99,11 @@ def ghost(x, y, r, colour_R, colour_G, colour_B, p,Pos):
 
 surface = pygame.Surface([428, 629], pygame.SRCALPHA, 32)
 surface = surface.convert_alpha()
-
+#Moon 
+circle(screen, moon_glow, [385, 55], 37)
+#Ground 
+rect(screen, black, [0, 263, 428, 365]) 
+#clouds
 cloud(77, 77, 77, 255, 19, 59, 227, 53)
 cloud(51, 51, 51, 255, 187, 41, 213, 53)
 cloud(77, 77, 77, 255, 254, 93, 193, 47)
@@ -109,11 +111,11 @@ cloud(0, 0, 0, 50, 187, 127, 240, 40)
 cloud(52, 52, 52, 100, 76, 240, 293, 40)
 cloud(52, 52, 52, 100, 188, 292, 293, 40)
 cloud(52, 52, 52, 100, 0, 333, 200, 53)
-
+#house
 house(147, 396)
 house(10, 459)
 house(311, 313)
-
+#ghost
 ghost(339, 466, 33, 255, 0, 0,  255, True)
 ghost(89, 497, 20, 255, 100, 180,  120, False)
 ghost(71, 527, 20, 0, 0, 255,  100, False)
@@ -132,49 +134,5 @@ while not finished:
 
 pygame.quit()
 
-def ghostl(x, y, r, i, j, k, p):
-    pygame.draw.circle(surface, (i, j, k, p), (x, y), r)
-    pygame.draw.rect(surface, (i, j, k, p), (x-r, y, 2*r, 1.3*r))
-    pygame.draw.polygon(surface, (i, j, k, p), [(x-r, y+1.3*r), (x-r, y+1.6*r), (x-r+0.33*r, y+1.4*r),
-                                                      (x-r+2*0.33*r, y+1.6*r), (x-r+3*0.33*r, y+1.4*r),
-                                                      (x-r+4*0.33*r, y+1.6*r), (x-r+5*0.33*r, y+1.4*r),
-                                                      (x+r, y+1.6*r), (x+r, y+1.3*r)])
-    pygame.draw.circle(screen, (225, 225, 225), [x-int(0.5*r), y-int(0.5*r)], int(0.3*r))
-    pygame.draw.circle(screen, (0, 0, 0), [x - int(0.5 * r), y - int(0.5 * r)], int(0.1 * r))
-    pygame.draw.circle(screen, (225, 225, 225), [x + int(0.25*r), y - int(0.25 * r)], int(0.3 * r))
-    pygame.draw.circle(screen, (0, 0, 0), [x + int(0.25 * r), y - int(0.25 * r)], int(0.1 * r))
 
 
-def ghostr(x, y, r, i, j, k, p):
-    pygame.draw.circle(surface, (i, j, k, p), (x, y), r)
-    pygame.draw.rect(surface, (i, j, k, p), (x - r, y, 2 * r, 1.3 * r))
-    pygame.draw.polygon(surface, (i, j, k, p),
-                            [(x - r, y + 1.3 * r), (x - r, y + 1.6 * r), (x - r + 0.33 * r, y + 1.4 * r),
-                             (x - r + 2 * 0.33 * r, y + 1.6 * r), (x - r + 3 * 0.33 * r, y + 1.4 * r),
-                             (x - r + 4 * 0.33 * r, y + 1.6 * r), (x - r + 5 * 0.33 * r, y + 1.4 * r),
-                             (x + r, y + 1.6 * r), (x + r, y + 1.3 * r)])
-    pygame.draw.circle(screen, (225, 225, 225), [x - int(0.25 * r), y - int(0.25 * r)], int(0.3 * r))
-    pygame.draw.circle(screen, (0, 0, 0), [x - int(0.25 * r), y - int(0.25 * r)], int(0.1 * r))
-    pygame.draw.circle(screen, (225, 225, 225), [x + int(0.5 * r), y - int(0.5 * r)], int(0.3 * r))
-    pygame.draw.circle(screen, (0, 0, 0), [x + int(0.5 * r), y - int(0.5 * r)], int(0.1 * r))
-
-# рисуем наконец
-house(220, 594, 0, 0)
-house(15, 688, 0, 0)
-house(467, 469, 0, 0)
-ghostl(508, 699, 50, 255, 0, 0, 250)
-ghostr(134, 746, 30, 255, 100, 180, 120)
-ghostr(107, 791, 30, 0, 0, 255, 100)
-ghostl(519, 543, 40, 255, 100, 10, 150)
-screen.blit(surface, (0, 0))
-pygame.display.update()
-clock = pygame.time.Clock()
-finished = False
-
-while not finished:
-    clock.tick(FPS)
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            finished = True
-
-pygame.quit()
